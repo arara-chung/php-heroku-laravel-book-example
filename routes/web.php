@@ -40,7 +40,9 @@ Route::group(['middleware' => ['web']], function() {
         }
 
         $book = new Book;
-        $book->title = $request->name;
+        $book->title = $request->title;
+        $book->excerpt = $request->excerpt;
+        $book->description = $request->description;
         $book->save();
 
         return redirect('/b');

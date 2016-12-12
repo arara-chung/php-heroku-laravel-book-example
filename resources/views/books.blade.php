@@ -18,14 +18,19 @@
 
 						<!-- Book Name -->
 						<div class="form-group">
-							<label for="task-name" class="col-sm-3 control-label">Book</label>
-
+							<label for="task-title" class="col-sm-3 control-label">Book</label>
 							<div class="col-sm-6">
 								<input type="text" name="title" id="book-title" class="form-control" value="{{ old('book') }}">
-							</div>							
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="task-excerpt" class="col-sm-3 control-label">Excerpt</label>					
 							<div class="col-sm-6">
 								<input type="textarea" name="excerpt" id="book-excerpt" class="form-control" value="{{ old('book') }}">
 							</div>
+						</div>
+						<div class="form-group">
+							<label for="task-description" class="col-sm-3 control-label">Description</label>
 							<div class="col-sm-6">
 								<input type="textarea" name="description" id="book-description" class="form-control" value="{{ old('book') }}">
 							</div>
