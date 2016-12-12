@@ -2,6 +2,7 @@
 
 use App\Book;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,7 @@ Route::group(['middleware' => ['web']], function() {
     Route::post('/book', ['middleware' => 'auth', function(Request $request) {
 
         $validator = Validator::make($request->all(), [
-            'name' => 'required|max:255',
+            'title' => 'required|max:255',
             ]);
 
         if($validator->fails()) {

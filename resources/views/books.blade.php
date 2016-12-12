@@ -21,7 +21,13 @@
 							<label for="task-name" class="col-sm-3 control-label">Book</label>
 
 							<div class="col-sm-6">
-								<input type="text" name="name" id="book-name" class="form-control" value="{{ old('book') }}">
+								<input type="text" name="title" id="book-title" class="form-control" value="{{ old('book') }}">
+							</div>							
+							<div class="col-sm-6">
+								<input type="textarea" name="excerpt" id="book-excerpt" class="form-control" value="{{ old('book') }}">
+							</div>
+							<div class="col-sm-6">
+								<input type="textarea" name="description" id="book-description" class="form-control" value="{{ old('book') }}">
 							</div>
 						</div>
 
@@ -60,7 +66,6 @@
 											<form action="/book/{{ $book->id }}" method="POST">
 												{{ csrf_field() }}
 												{{ method_field('DELETE') }}
-
 												<button type="submit" class="btn btn-danger">
 													<i class="fa fa-trash"></i>削除
 												</button>
