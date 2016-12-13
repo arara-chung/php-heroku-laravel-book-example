@@ -18,7 +18,7 @@
 
 						<!-- Book Name -->
 						<div class="form-group">
-							<label for="task-title" class="col-sm-3 control-label">Book</label>
+							<label for="task-title" class="col-sm-3 control-label">Book title</label>
 							<div class="col-sm-6">
 								<input type="text" name="title" id="book-title" class="form-control" value="{{ old('book') }}">
 							</div>

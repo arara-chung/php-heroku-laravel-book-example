@@ -20,6 +20,20 @@ Route::get('/', function () {
 });
 
 
+// book routes version 2
+Route::resource('b2', 'BooksController');
+
+/*
+Route::get('/b2', ['as' => 'indexBook', 'middleware' => 'auth', 'uses' => 'BooksController@index']);
+//Route::get('/b2/create', ['as' => 'createBook2', 'middleware' => 'auth', 'uses' => 'BooksController@create']);
+Route::post('/b2', ['as' => 'storeBook', 'middleware' => 'auth', 'uses' => 'BooksController@store']);
+Route::get('/b2/{book}', 'BooksController@show');
+*/
+
+
+
+
+// book routes version 1
 Route::group(['middleware' => ['web']], function() {
 
     Route::get('/b', ['middleware' => 'auth', function() {
