@@ -23,7 +23,6 @@
                             'name' => "title",
                             'id' => "book-title",
                             'class' => "form-control",
-                            'value' => old('book'),
                         ]) !!}
                     </div>
                 </div>
@@ -37,7 +36,6 @@
                             'name' => "excerpt",
                             'id' => "book-excerpt",
                             'class' => "form-control",
-                            'value' => old('book'),
                         ]) !!}
                     </div>
                 </div>
@@ -51,13 +49,12 @@
                             'name' => "description",
                             'id' => "book-description",
                             'class' => "form-control",
-                            'value' => old('book'),
                         ]) !!}
                     </div>
                 </div>
 
                 <div class="form-group">
-                    {!! Form::label('task-date', 'Random date:', [
+                    {!! Form::label('task-date', 'Published at:', [
                         'class' => 'col-sm-3 control-label',
                     ]) !!}
                     <div class="col-sm-6">
@@ -102,11 +99,19 @@
                                 </div>
                             </td>
                             <td>
-                                <form action="/book/{{ $book->id }}" method="POST">
+                                <form action="/b2/{{ $book->id }}" method="POST">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
                                     <button type="submit" class="btn btn-danger">
                                         <i class="fa fa-trash"></i>削除
+                                    </button>
+                                </form>
+                            </td>
+                            <td>
+                                <form action="/b2/{{ $book->id }}/edit" method="GET">
+                                    {{ csrf_field() }}
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fa fa-pencil-square-o"></i>修正
                                     </button>
                                 </form>
                             </td>

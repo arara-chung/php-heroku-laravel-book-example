@@ -61,6 +61,15 @@
                 </table>
             </div>
         </div>
+        @else
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                書籍詳細
+            </div>
+            <div class="panel-body">
+                <p>No book to show</p>
+            </div>
+        </div>
         @endif
     </div>
 </div>

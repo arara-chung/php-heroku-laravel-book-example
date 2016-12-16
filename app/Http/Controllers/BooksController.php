@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Book;
-use Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
+//use Illuminate\Support\Facades\Validator;
+//use Request;
 use App\Http\Requests\CreateBookRequest;
 
 class BooksController extends Controller {
@@ -27,7 +27,15 @@ class BooksController extends Controller {
 
     }
 
-    // Validation using Validator::make($input, rule_array);
+    // Validation using php artisan make:request CreateBookRequest
+    public function store(CreateBookRequest $request) {
+
+        Book::create($request->all());
+
+        return redirect('/b2');
+    }
+
+    // Validation using Validator::make($input, rule_array) and Request Facade
     /*
     public function store() {
 
@@ -44,21 +52,26 @@ class BooksController extends Controller {
                 ->withErrors($validator);
         }
 
+        // or just use App/Http/Request
+        // $this->validate($request, rule_array);
+
         Book::create($input);
 
         return redirect('/b2');
     }
     */
 
-    // Validation php artisan make:request CreateBookRequest
-    public function store(CreateBookRequest $request) {
+    // Validation using App/Http/Request
+    /*
+    public function store() {
 
-        $input = $request->all();
+        $this->validate($request, rule_array);
 
-        Book::create($input);
+        Book::create($request->all());
 
         return redirect('/b2');
     }
+    */
 
     public function create() {
 
@@ -72,7 +85,13 @@ class BooksController extends Controller {
 
     }
 
-    public function update($b2) {
+    public function update($b2, CreateBookRequest $request) {
+
+        $book = Book::findOrFail($b2);
+
+        $book->update($request->all());
+
+        return redirect('b2');
 
     }
 
@@ -84,7 +103,7 @@ class BooksController extends Controller {
 
         $book = Book::findOrFail($b2);
 
-        return view('books.edit', compact(book));
+        return view('books.edit')->with(compact('book'));
     }
 
 
